@@ -171,4 +171,7 @@ select * from view_dos_discos;
 
 create view view_do_usuario as select usuario.nome_completo, usuario.cpf from usuario join pagamento on pagamento.id = usuario.id;
 
-select * from view_do_usuario
+select * from view_do_usuario;
+
+create index inx_vinil_nome on vinil(nome_vinil);
+
