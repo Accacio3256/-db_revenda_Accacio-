@@ -15,7 +15,7 @@ create table vinil (
 	id serial primary key,
 	preco numeric (5,2) not null,
 	nome_vinil varchar(30) not null unique,
-	data_lancamento date not null,
+	data_lancamento date not null check(data_lancamento>'1941-06-21'),
 	tamanho float not null,
 	genero_musical varchar(30) not null,
 	idioma varchar(20) not null
@@ -170,4 +170,5 @@ create view view_dos_discos as select vinil.nome_vinil, vinil.genero_musical fro
 select * from view_dos_discos;
 
 create view view_do_usuario as select usuario.nome_completo, usuario.cpf from usuario join pagamento on pagamento.id = usuario.id;
+
 select * from view_do_usuario
